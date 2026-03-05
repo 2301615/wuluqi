@@ -69,7 +69,7 @@ const About = () => {
     { icon: <Sparkles className="w-4 h-4" />, text: "爱思考", color: "bg-yellow-100 text-yellow-600 dark:bg-yellow-900/30 dark:text-yellow-300", glow: "hover:shadow-yellow-500/50" },
   ];
 
-  const textVariants = {
+  const textVariants: any = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,
@@ -77,7 +77,7 @@ const About = () => {
       transition: {
         delay: i * 0.1,
         duration: 0.8,
-        ease: [0.2, 0.65, 0.3, 0.9],
+        ease: "easeInOut",
       },
     }),
   };
@@ -165,18 +165,17 @@ const About = () => {
                                 className="inline-block font-serif italic font-bold text-3xl mb-2 bg-gradient-to-r from-neutral-800 via-orange-500 to-neutral-800 dark:from-white dark:via-orange-400 dark:to-white bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient cursor-pointer"
                             >
                                 {"生命应希望而常怀感动。".split("").map((char, i) => (
-                                    <motion.span
-                                        key={i}
-                                        className="inline-block"
-                                        whileHover={{ 
-                                            y: -6, 
-                                            scale: 1.1,
-                                            rotate: i % 2 === 0 ? 5 : -5,
-                                            color: "#F97316",
-                                            WebkitTextFillColor: "#F97316"
-                                        }}
-                                        transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                                    >
+                                        <motion.span
+                                            key={i}
+                                            className="inline-block"
+                                            whileHover={{ 
+                                                y: -6, 
+                                                scale: 1.1,
+                                                rotate: i % 2 === 0 ? 5 : -5,
+                                                color: "#F97316",
+                                            }}
+                                            transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                                        >
                                         {char}
                                     </motion.span>
                                 ))}
